@@ -72,3 +72,8 @@ if ($Status == 200) {
 	echo $response;
 }
 ```
+
+#### Notes:
+##### 1. All results will save in ```$response``` variable!
+##### 2. Library will change ```$Status``` code to 200.
+##### 3. Read more in NextPay.org documents
