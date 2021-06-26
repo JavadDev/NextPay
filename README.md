@@ -27,3 +27,27 @@ if ($Status == 200) {
 	echo $response;
 }
 ```
+
+#### Verify a transaction:
+```PHP
+extract($_GET);
+
+if (isset($amount) and isset($trans_id) and isset($order_id)) {
+	$data = array(
+		'amount' => $amount,
+		'trans_id' => $trans_id,
+	);
+	
+	$NextPay->setData($data);
+	$verify = $NextPay->verifyToken($response)->getStatus($Status);
+	
+	if ($Status == 200) {
+		echo 'Done';
+	} else {
+		echo 'Error';
+	}
+	
+	$response = json_encode($response, 448);
+	echo "<pre language='json'>$response</pre>";
+}
+```
