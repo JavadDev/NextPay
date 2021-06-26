@@ -51,3 +51,24 @@ if (isset($amount) and isset($trans_id) and isset($order_id)) {
 	echo "<pre language='json'>$response</pre>";
 }
 ```
+
+#### Checkout Payment:
+```PHP
+$data = array(
+	'wid' => 32,
+	'auth' => "",
+	'amount' => 1000,
+	'sheba' => "100....",
+	'name' => "محمد محمدی",
+);
+
+$NextPay->setData($data);
+$NextPay->checkOut($response)->getStatus($Status);
+// $NextPay->checkOutWithoutFee($response)->getStatus($Status);
+if ($Status == 200) {
+	echo 'Success';
+} else {
+	$response = json_encode($response, 448);
+	echo $response;
+}
+```
